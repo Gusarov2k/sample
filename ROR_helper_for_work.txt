@@ -7,7 +7,7 @@ gem update --system // update system gem
 
 !!! для того что бы не устанавливать документацию на gem нужно:
 1. создать фаил в домашней деректории nano ~/.gemrc
-2. add code gem: --no-document 
+2. add code gem: --no-document
 3. save file
 
 
@@ -19,7 +19,7 @@ gem update --system // update system gem
 
 #3
 //maps controllers
-bundle exec rake routes  
+bundle exec rake routes
 
 #4
 // start rails console
@@ -46,7 +46,7 @@ $ bundle exec rake -T db
 Чтобы увидеть все доступные задачи Rake, запустите
 $ bundle exec rake -T
 
-#for deploy on Heroky 
+#for deploy on Heroky
 нужно в файле secret.yml в production: заменить ключ взяв его с настройки хостинга herocu
 так же нужно добавить в гем файл во втрой строке версию Ruby - ruby: ruby "2.5.1"
 
@@ -249,7 +249,51 @@ $ rails generate migration add_password_digest_to_users password_digest:string
 users в листинге 6.1, которой передавались аргументы name:string и email:string .)
 Аргумент password_digest:string содержит достаточно информации, чтобы Rails
 смог создать миграцию
-
+_______________________________________________________________________________
+#
+Окружения Rails
+Rails поставляется с тремя настроенными окружениями: test (тестовое), development
+(разработки) и production (промышленное). Окружением по умолчанию для консоли
+Rails является окружение разработки:
+$ rails console
+Loading development environment
+>> Rails.env
+=> "development"
+>> Rails.env.development?
+=> true
+>> Rails.env.test?
+=> false
+Как видите, в Rails имеется объект Rails с атрибутом env и логическими методами,
+среди которых имеется метод Rails.env.test? , возвращающий true в тестовом окру-
+жении и false в остальных.
+Если понадобится запустить консоль в другом окружении (например, для отладки
+теста), можно передать окружение сценарию console в виде параметра:
+$ rails console test
+Loading test environment
+>> Rails.env
+=> "test"
+>> Rails.env.test?
+=> true
+Сервер Rails, так же как консоль, по умолчанию выполняется в окружении разра-
+ботки, и для него тоже можно изменить окружение:
+$ rails server --environment production
+Если попробовать запустить приложение в промышленном окружении, оно не бу-
+дет работать без настроенной базы данных, которую можно создать, выполнив
+коман­ду rake db:migrate в промышленном окружении:
+$ bundle exec rake db:migrate RAILS_ENV=production
+(Я считаю, что три разных взаимоисключающих способа переопределения окруже-
+ния в консоли, на сервере и для команд миграции могут сбить с толку кого угодно,
+поэтому я потрудился показать здесь все три.)
+Кстати, если вы развернули учебное приложение на Heroku, определить его окру-
+жение можно командой heroku run console :
+$ heroku run console
+>> Rails.env
+=> "production"
+>> Rails.env.production?
+=> true
+Естественно, поскольку Heroku является платформой для развертывания сайтов,
+она запускает каждое приложение в промышленном окружении.
+______________________________________________________________________
 
 ************************************
 Unix-процессы
