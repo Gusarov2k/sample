@@ -32,11 +32,11 @@ gem 'bootstrap-sass', '~> 3.2.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'web-console', '~> 2.0', group: :development
 
 group :development, :test do
   gem 'byebug'
   gem 'sqlite3'
-  gem 'web-console', '~> 2.0'
   gem 'spring'
 end
 
