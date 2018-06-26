@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
 	end
 
 	def remember
-		self.remember_token = ...
-		update_attribute(:remember_digest, ...)
+		self.remember_token = User.new_token
+		update_attribute(:remember_digest, User.digest(remember_token))
 	end
 end
