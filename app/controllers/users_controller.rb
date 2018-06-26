@@ -12,6 +12,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)   # Не окончательная реализация!
     if @user.save
       # Обработать успешное сохранение.
+      log_in @user
       flash[:success] = "Welcome to the Sample App!"
       redirect_to @user
     else
