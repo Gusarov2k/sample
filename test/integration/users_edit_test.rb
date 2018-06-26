@@ -32,4 +32,6 @@ class UsersEditTest < ActionDispatch::IntegrationTest
 		assert_equal @user.name, name
 		assert_equal @user.email, email
 	end
+
+	
 end
