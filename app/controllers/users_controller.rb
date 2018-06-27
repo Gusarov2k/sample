@@ -72,6 +72,9 @@ class UsersController < ApplicationController
     redirect_to(root_url) unless current_user?(@user)
   end
 
-
-
+  # Подтверждает наличие административных привилегий.
+  def admin_user
+    redirect_to(root_url) unless current_user.admin?
+  end
+  
 end
