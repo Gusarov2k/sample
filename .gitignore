@@ -15,3 +15,5 @@
 /log/*
 !/log/.keep
 /tmp
+
+ROR_helper_for_work.txt
