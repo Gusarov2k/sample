@@ -51,7 +51,6 @@ private
 		self.email = email.downcase
 	end
 
-	end
 	# Создает и присваивает токен активации и его дайджест.
 	def create_activation_digest
 		self.activation_token = User.new_token
