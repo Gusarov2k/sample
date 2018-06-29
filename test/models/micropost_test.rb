@@ -6,8 +6,7 @@ class MicropostTest < ActiveSupport::TestCase
   # end
   def setup
     @user = users(:michael)
-    # Этот код идиоматически не корректен.
-    @micropost = Micropost.new(content: "Lorem ipsum", user_id: @user.id)
+    @micropost = @user.microposts.build(content: "Lorem ipsum")
   end
   test "should be valid" do
     assert @micropost.valid?
