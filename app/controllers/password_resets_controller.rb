@@ -33,6 +33,7 @@ class PasswordResetsController < ApplicationController
       redirect_to @user
     else
      render 'edit'
+    end
   end
 
   private
@@ -67,3 +68,4 @@ class PasswordResetsController < ApplicationController
   end
 
 end
+
