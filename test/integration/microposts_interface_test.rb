@@ -7,8 +7,10 @@ class MicropostsInterfaceTest < ActionDispatch::IntegrationTest
   end
 
   test "micropost interface" do
-    log_in_as(@user) get root_path
+    log_in_as(@user)
+    get root_path
     assert_select 'div.pagination'
+
     # Недопустимая информация в форме.
     assert_no_difference 'Micropost.count' do
       post microposts_path, micropost: { content: "" }
@@ -31,4 +33,5 @@ class MicropostsInterfaceTest < ActionDispatch::IntegrationTest
     get user_path(users(:archer))
     assert_select 'a', text: 'delete', count: 0
   end
+
 end
