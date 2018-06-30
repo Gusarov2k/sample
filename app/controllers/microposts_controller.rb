@@ -24,7 +24,7 @@ before_action :correct_user, only: :destroy
 
 
   def micropost_params
-    params.require(:micropost).permit(:content)
+    params.require(:micropost).permit(:content, :picture)
   end
 
   def correct_user
