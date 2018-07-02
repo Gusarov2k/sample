@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
 
 	has_many :microposts, dependent: :destroy
+	has_many :active_relationships, class_name: "Relationship",
+																	foreign_key: "follower_id",
+																	dependent: :destroy
 
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 	attr_accessor :remember_token, :activation_token, :reset_token
