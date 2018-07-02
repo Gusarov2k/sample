@@ -86,6 +86,22 @@ class User < ActiveRecord::Base
 		Micropost.where("user_id = ?", id)
 	end
 
+	# Выполняет подписку на сообщения пользователя.
+	def follow(other_user)
+		active_relationships.create(followed_id: other_user.id)
+	end
+
+	# Отменяет подписку на сообщения пользователя.
+	def unfollow(other_user)
+		active_relationships.find_by(followed_id: other_user.id).destroy
+	end
+
+	# Возвращает true, если текущий пользователь читает
+	#другого пользователя.
+	def following?(other_user)
+		following.include?(other_user)
+	end
+
 private
 
 	# Преобразует адрес электронной почты в нижний регистр.
