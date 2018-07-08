@@ -143,7 +143,8 @@ Pipeline» в руководстве к Rails ( http://guides.rubyonrails.org/as
 встроенного Ruby (ERb). Впервые мы говорили о ERb в разделе 3.4.3, о Sass – в раз-
 деле 5.2.2. В этой книге нам не понадобится CoffeeScript, но если вам интересно
 узнать­ об этом элегантном маленьком языке, который компилируется в JavaScript,
-советую начать с видеоурока об основах CoffeeScript http://railscasts.com/episodes/267-coffeescript-basics // Lesson on ROR !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+советую начать с видеоурока об основах 
+CoffeeScript http://railscasts.com/episodes/267-coffeescript-basics // Lesson on ROR !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 Препроцессоры можно объединять в цепочки, например файл
 foobar.js.coffee
 будет обработан препроцессором CoffeeScript, а файл
